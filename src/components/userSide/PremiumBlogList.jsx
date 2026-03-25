@@ -102,7 +102,11 @@ export default function PremiumBlogList({ initialBlogs }) {
             </div>
           ) : (
             displayedBlogs.map((blog) => {
-              const plainText = blog.content.replace(/<[^>]+>/g, "");
+              // const plainText = blog.content.replace(/<[^>]+>/g, "");
+              const plainText = blog.content
+                                  .replace(/<[^>]+>/g, '') // 1. Saare HTML tags (<p>, <h1>, etc.) uda do
+                                  .replace(/&nbsp;/g, ' ') // 2. Saare &nbsp; ko aam space se replace kar do
+                                  .substring(0, 150)
               
               // UI Avatars se author ki profile pic banana
               const authorName = blog.author?.name || "Unknown";
