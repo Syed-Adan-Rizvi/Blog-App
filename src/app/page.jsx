@@ -1,4 +1,5 @@
 // src/app/page.jsx
+export const dynamic = "force-dynamic"; // 🌟 THE CACHE BUSTER MAGIC 
 import { connectDB } from "@/lib/db";
 import { Blog } from "@/models/Blog";
 import { User } from "@/models/User";
